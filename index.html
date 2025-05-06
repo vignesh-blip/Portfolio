@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vigneshwar Ambedu Venkatesan | Business Operations Analyst</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- FontAwesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* =================================== */
+    /* ============== BASE ============== */
+    /* =================================== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:"Poppins",sans-serif; }
+    html { scroll-behavior:smooth; }
+    a, .btn { transition:all 0.3s ease; }
+    p { color:rgb(85,85,85); }
+
+    /* =================================== */
+    /* ========== NAVIGATION ============ */
+    /* =================================== */
+    nav, .nav-link { display:flex; }
+    nav {
+      justify-content:space-around;
+      align-items:center;
+      height:15vh;
+      background:#fff;
+      position:sticky;
+      top:0;
+      box-shadow:0 2px 4px rgba(0,0,0,0.1);
+      z-index:10;
+    }
+    .nav-link { list-style:none; gap:2rem; }
+    .logo { font-size:1.5rem; font-weight:600; }
+    a { color:#000; text-decoration:none; }
+    a:hover { color:gray; text-decoration:underline; }
+
+    /* === Mobile Hamburger === */
+    #hamburger-nav { display:none; }
+    .hamburger-menu { position:relative; }
+    .hamburger-icon { display:flex; flex-direction:column; justify-content:space-between; height:24px; width:30px; cursor:pointer; }
+    .hamburger-icon span { width:100%; height:2px; border-radius:5px; background:#000; }
+    .menu-link { position:absolute; top:100%; right:0; background:#fff; max-height:0; overflow:hidden; transition:all 0.3s ease; }
+    .menu-link.open { max-height:300px; }
+    .menu-link li { list-style:none; }
+    .menu-link a { display:block; padding:10px; font-size:1.2rem; }
+    .hamburger-icon.open span:first-child { transform:rotate(45deg) translate(5px,5px); }
+    .hamburger-icon.open span:nth-child(2) { opacity:0; }
+    .hamburger-icon.open span:last-child { transform:rotate(-45deg) translate(5px,-5px); }
+
+    /* =================================== */
+    /* ============== SECTIONS ========== */
+    /* =================================== */
+    section {
+      padding:4vh 10vw;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:2rem;
+      position:relative;
+    }
+    .title { font-size:2.5rem; text-align:center; }
+
+    /* === Side Arrow === */
+    .side-arrow {
+      position:absolute; right:2vw; top:50%; transform:translateY(-50%);
+    }
+    .side-arrow a { font-size:1.5rem; color:gray; opacity:0.6; }
+    .side-arrow a:hover { opacity:1; }
+
+    /* ===== Profile ===== */
+    #profile {
+      display:flex; flex-direction:column; align-items:center;
+      text-align:center; gap:1.5rem;
+    }
+    .section-pic { width:250px; }
+    .section-pic img {
+      width:100%; border-radius:50%; border:4px solid #000;
+    }
+    .section__text__p1 { font-weight:300; }
+    .section__text__p2 { margin:0.5rem 0; font-size:1.25rem; }
+    .btn-social {
+      display:flex; gap:1rem; align-items:center; justify-content:center;
+    }
+    .btn {
+      padding:0.75rem 1.5rem; border-radius:2rem; border:2px solid #000;
+      font-weight:600; background:transparent; cursor:pointer;
+    }
+    .btn:hover { background:#000; color:#fff; }
+
+    /* ===== Content Grids ===== */
+    .article-container {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:2rem; max-width:1200px; width:100%;
+    }
+    .details-container,
+    .color-container {
+      padding:1rem; background:#f9f9f9; border-radius:1rem;
+    }
+    .section-icon { margin-right:0.5rem; }
+    .keywords { font-style:italic; color:#333; margin-top:0.5rem; }
+
+    /* ===== Responsive ===== */
+    @media(max-width:992px){
+      #desktop-nav{display:none;}
+      #hamburger-nav{display:flex;justify-content:space-between;align-items:center;height:15vh;}
+    }
+    @media(max-width:768px){
+      section{padding:4vh 5vw;}
+      .article-container{width:100%;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Desktop Nav -->
+  <nav id="desktop-nav">
+    <div class="logo">Vigneshwar</div>
+    <ul class="nav-link">
+      <li><a href="#profile"><i class="fas fa-home section-icon"></i>Home</a></li>
+      <li><a href="#experience"><i class="fas fa-briefcase section-icon"></i>Experience</a></li>
+      <li><a href="#projects"><i class="fas fa-folder-open section-icon"></i>Projects</a></li>
+      <li><a href="#education"><i class="fas fa-graduation-cap section-icon"></i>Education</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope section-icon"></i>Contact</a></li>
+      <li><a href="#about"><i class="fas fa-heart section-icon"></i>About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <nav id="hamburger-nav">
+    <div class="logo">Vigneshwar</div>
+    <div class="hamburger-menu">
+      <div class="hamburger-icon" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="menu-link">
+        <li><a href="#profile" onclick="toggleMenu()"><i class="fas fa-home section-icon"></i>Home</a></li>
+        <li><a href="#experience" onclick="toggleMenu()"><i class="fas fa-briefcase section-icon"></i>Experience</a></li>
+        <li><a href="#projects" onclick="toggleMenu()"><i class="fas fa-folder-open section-icon"></i>Projects</a></li>
+        <li><a href="#education" onclick="toggleMenu()"><i class="fas fa-graduation-cap section-icon"></i>Education</a></li>
+        <li><a href="#contact" onclick="toggleMenu()"><i class="fas fa-envelope section-icon"></i>Contact</a></li>
+        <li><a href="#about" onclick="toggleMenu()"><i class="fas fa-heart section-icon"></i>About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Profile -->
+  <section id="profile">
+    <div class="side-arrow"><a href="#experience"><i class="fas fa-chevron-down"></i></a></div>
+    <div class="section-pic"><img src="IMG_6267.jpeg" alt="Vigneshwar"/></div>
+    <div class="section__text">
+      <p class="section__text__p1">Hello, I’m</p>
+      <h1 class="title">Vigneshwar Ambedu Venkatesan</h1>
+      <p class="section__text__p2">Business Analyst</p>
+      <div class="btn-social">
+        <a href="anlayst.pdf" download class="btn">Download CV</a>
+        <button class="btn" onclick="location.href='#contact'">Contact Info</button>
+        <i class="fab fa-linkedin" onclick="window.open('https://www.linkedin.com/in/vigneshwar-ambedu-venkatesan-5a4006257','_blank')"></i>
+        <i class="fab fa-github" onclick="window.open('https://github.com/vignesh-blip','_blank')"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="side-arrow"><a href="#projects"><i class="fas fa-chevron-down"></i></a></div>
+    <p class="section__text__p1">Explore My</p>
+    <h1 class="title"><i class="fas fa-briefcase section-icon"></i>Experience</h1>
+    <div class="article-container">
+      <div class="details-container">
+        <h2>Assistant Manager – Finance & Operations</h2>
+        <p class="keywords">Procurement • Forecasting • Audits • SRM</p>
+      </div>
+      <div class="details-container">
+        <h2>Finance Assistant – Accounts Payable & Inventory Analysis</h2>
+        <p class="keywords">Invoicing • PO Matching • Reconciliations • Inventory Audits • P&amp;L</p>
+      </div>
+      <div class="details-container">
+        <h2>Business Operations Analyst (Contract)</h2>
+        <p class="keywords">Data Validation • Expense Reconciliation • Procurement Monitoring • Stock Counts</p>
+      </div>
+      <div class="details-container">
+        <h2>Finance Intern</h2>
+        <p class="keywords">Invoicing • Reconciliations • Document Control • Vendor Audits</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="side-arrow"><a href="#education"><i class="fas fa-chevron-down"></i></a></div>
+    <p class="section__text__p1">Browse My Recent</p>
+    <h1 class="title"><i class="fas fa-folder-open section-icon"></i>Projects</h1>
+    <div class="article-container">
+      <div class="color-container">
+        <h3 class="project-title">Coffee Shop Digital Loyalty Card System</h3>
+        <p class="keywords">Google Forms • Apple Wallet (.pkpass) • QR Code • Google Sheets</p>
+      </div>
+      <div class="color-container">
+        <h3 class="project-title">Barista Feedback & Audit Form Automation</h3>
+        <p class="keywords">Google Sheets • Google Forms • Canva • QR Generator</p>
+      </div>
+      <div class="color-container">
+        <h3 class="project-title">Store Inventory & Wastage Reporting Dashboard</h3>
+        <p class="keywords">Excel Advanced • Power BI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="side-arrow"><a href="#contact"><i class="fas fa-chevron-down"></i></a></div>
+    <p class="section__text__p1">My</p>
+    <h1 class="title"><i class="fas fa-graduation-cap section-icon"></i>Education</h1>
+    <div class="article-container">
+      <div class="details-container">
+        <h2>MSc International Business Management</h2>
+        <p class="keywords">Royal Holloway, University of London • Sep 2022 – Sep 2023</p>
+        <p class="keywords"><i class="fas fa-flask section-icon"></i>Major Project: Virtual Augmented Reality as a Retail Expansion Strategy in Fashion</p>
+      </div>
+      <div class="details-container">
+        <h2>B.E. Computer Science Engineering</h2>
+        <p class="keywords">Sri Sairam Engineering College • Aug 2018 – Jun 2022</p>
+        <p class="keywords"><i class="fas fa-cogs section-icon"></i>Major Project: IMEI Verification System — 2nd Place Innovation Award</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="side-arrow"><a href="#about"><i class="fas fa-chevron-down"></i></a></div>
+    <p class="section__text__p1">Get In Touch</p>
+    <h1 class="title"><i class="fas fa-envelope section-icon"></i>Contact</h1>
+    <div class="article-container">
+      <div class="details-container">
+        <h2><i class="fas fa-envelope section-icon"></i>Email</h2>
+        <p><a href="mailto:vickyvin7000@gmail.com">vickyvin7000@gmail.com</a></p>
+      </div>
+      <div class="details-container">
+        <h2><i class="fas fa-phone section-icon"></i>Phone</h2>
+        <p>+44 7436 217413</p>
+      </div>
+      <div class="details-container">
+        <h2><i class="fab fa-linkedin section-icon"></i>LinkedIn</h2>
+        <p><a href="https://www.linkedin.com/in/vigneshwar-ambedu-venkatesan-5a4006257" target="_blank">
+             linkedin.com/in/vigneshwar-ambedu-venkatesan-5a4006257
+        </a></p>
+      </div>
+      <div class="details-container">
+        <h2><i class="fab fa-github section-icon"></i>GitHub</h2>
+        <p><a href="https://github.com/vignesh-blip" target="_blank">
+             github.com/vignesh-blip
+        </a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->  
+  <section id="about">
+    <div class="side-arrow"><a href="#cta"><i class="fas fa-chevron-down"></i></a></div>
+    <p class="section__text__p1">More About Me</p>
+    <h1 class="title"><i class="fas fa-heart section-icon"></i>About Me</h1>
+    <div class="article-container">
+      <div class="details-container">☕ Devoted to Contemporary Coffee — crafting café experiences where every sip tells a story.</div>
+      <div class="details-container">📊 Driven by Analyst Work — I live for clean data, messy spreadsheets, and the magic in customer insights.</div>
+      <div class="details-container">🌍 Invested in the World Share Market — always brewing fresh ideas from global trends.</div>
+      <div class="details-container">📈 Passionate About Real-Time Customer Data — because the best decisions are made when they’re grounded in now.</div>
+      <div class="details-container">💡 Whether I’m behind the bar or behind the numbers, I blend flavor with strategy—and stir in a little wit.</div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section id="cta">
+    <h1 class="title"><i class="fas fa-lightbulb section-icon"></i>Let’s Innovate Together</h1>
+    <p class="keywords">Combining strategic analysis and operational expertise to drive measurable business growth.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="keywords" style="text-align:center; margin-top:2rem;">Ready to collaborate and drive success together.</p>
+    <p style="text-align:center; margin:1rem 0;">
+      <a href="#profile">Home</a> |
+      <a href="#experience">Experience</a> |
+      <a href="#projects">Projects</a> |
+      <a href="#education">Education</a> |
+      <a href="#contact">Contact</a> |
+      <a href="#about">About</a>
+    </p>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      document.querySelector('.menu-link').classList.toggle('open');
+      document.querySelector('.hamburger-icon').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
